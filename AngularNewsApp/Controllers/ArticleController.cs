@@ -45,12 +45,8 @@ namespace AngularNewsApp.Controllers
 
 
             List<ArticleDataModel> art = (from a in articles
-                                          from c in _context.Category
-                                          from l in _context.RssLink
-                                          from s in _context.Source
-                                          where s.id == l.id_source
-                                          where l.id_category == c.id
-                                          where a.id_rss_link == l.id
+                                          join r in _context.RssLink on a.id_rss_link equals r.id
+                                          join s in _context.Source on r.id_source equals s.id
                                           select new ArticleDataModel()
                                           {
                                               id = a.id,
@@ -66,19 +62,19 @@ namespace AngularNewsApp.Controllers
 
 
 
-            foreach (ArticleDataModel a in art)
-            {
-                Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
-                // if text is not single line use this regex
-                // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
+            //foreach (ArticleDataModel a in art)
+            //{
+            //    Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
+            //    // if text is not single line use this regex
+            //    // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
 
-                var result = pRegex.Match(a.description).Groups[1].Value;
+            //    var result = pRegex.Match(a.description).Groups[1].Value;
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    a.img = result;
-                }
-            }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        a.img = result;
+            //    }
+            //}
 
 
 
@@ -107,12 +103,8 @@ namespace AngularNewsApp.Controllers
             }
 
             List<ArticleDataModel> art = (from a in articles
-                                          from c in _context.Category
-                                          from l in _context.RssLink
-                                          from s in _context.Source
-                                          where s.id == l.id_source
-                                          where l.id_category == c.id
-                                          where a.id_rss_link == l.id
+                                          join r in _context.RssLink on a.id_rss_link equals r.id
+                                          join s in _context.Source on r.id_source equals s.id
                                           select new ArticleDataModel()
                                           {
                                               id = a.id,
@@ -126,20 +118,20 @@ namespace AngularNewsApp.Controllers
                                           }).ToList();
 
 
-            foreach (ArticleDataModel a in art)
-            {
-                Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
-                // if text is not single line use this regex
-                // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
+            //foreach (ArticleDataModel a in art)
+            //{
+            //    Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
+            //    // if text is not single line use this regex
+            //    // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
 
-                var result = pRegex.Match(a.description).Groups[1].Value;
+            //    var result = pRegex.Match(a.description).Groups[1].Value;
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    a.img = result;
-                }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        a.img = result;
+            //    }
 
-            }
+            //}
 
             return art;
         }
@@ -169,12 +161,8 @@ namespace AngularNewsApp.Controllers
             }
 
             List<ArticleDataModel> art = (from a in articles
-                                          from c in _context.Category
-                                          from l in _context.RssLink
-                                          from s in _context.Source
-                                          where s.id == l.id_source
-                                          where l.id_category == c.id
-                                          where a.id_rss_link == l.id
+                                          join r in _context.RssLink on a.id_rss_link equals r.id
+                                          join s in _context.Source on r.id_source equals s.id
                                           select new ArticleDataModel()
                                           {
                                               id = a.id,
@@ -187,20 +175,20 @@ namespace AngularNewsApp.Controllers
                                           }).ToList();
 
 
-            foreach (ArticleDataModel a in art)
-            {
-                Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
-                // if text is not single line use this regex
-                // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
+            //foreach (ArticleDataModel a in art)
+            //{
+            //    Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
+            //    // if text is not single line use this regex
+            //    // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
 
-                var result = pRegex.Match(a.description).Groups[1].Value;
+            //    var result = pRegex.Match(a.description).Groups[1].Value;
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    a.img = result;
-                }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        a.img = result;
+            //    }
 
-            }
+            //}
 
             return art;
         }
@@ -259,20 +247,20 @@ namespace AngularNewsApp.Controllers
                        }).ToList();
             }
 
-            foreach (ArticleDataModel a in art)
-            {
-                Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
-                // if text is not single line use this regex
-                // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
+            //foreach (ArticleDataModel a in art)
+            //{
+            //    Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
+            //    // if text is not single line use this regex
+            //    // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
 
-                var result = pRegex.Match(a.description).Groups[1].Value;
+            //    var result = pRegex.Match(a.description).Groups[1].Value;
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    a.img = result;
-                }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        a.img = result;
+            //    }
 
-            }
+            //}
 
 
             return art;
@@ -296,11 +284,9 @@ namespace AngularNewsApp.Controllers
             if (nb.HasValue)
             {
                 art = (from a in _context.Article
-                       from l in _context.RssLink
-                       from s in _context.Source
+                       join r in _context.RssLink on a.id_rss_link equals r.id
+                       join s in _context.Source on r.id_source equals s.id
                        where recommendations.Contains(a.id)
-                       where s.id == l.id_source
-                       where a.id_rss_link == l.id
                        select new ArticleDataModel()
                        {
                            id = a.id,
@@ -315,11 +301,9 @@ namespace AngularNewsApp.Controllers
             else
             {
                 art = (from a in _context.Article
-                       from l in _context.RssLink
-                       from s in _context.Source
+                       join r in _context.RssLink on a.id_rss_link equals r.id
+                       join s in _context.Source on r.id_source equals s.id
                        where recommendations.Contains(a.id)
-                       where s.id == l.id_source
-                       where a.id_rss_link == l.id
                        select new ArticleDataModel()
                        {
                            id = a.id,
@@ -333,20 +317,20 @@ namespace AngularNewsApp.Controllers
             }
 
 
-            foreach (ArticleDataModel a in art)
-            {
-                Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
-                // if text is not single line use this regex
-                // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
+            //foreach (ArticleDataModel a in art)
+            //{
+            //    Regex pRegex = new Regex("<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase);
+            //    // if text is not single line use this regex
+            //    // Regex pRegex = new Regex("<p.*?(?=</p>), RegexOptions.SingleLine"); 
 
-                var result = pRegex.Match(a.description).Groups[1].Value;
+            //    var result = pRegex.Match(a.description).Groups[1].Value;
 
-                if (!string.IsNullOrEmpty(result))
-                {
-                    a.img = result;
-                }
+            //    if (!string.IsNullOrEmpty(result))
+            //    {
+            //        a.img = result;
+            //    }
 
-            }
+            //}
             return art;
         }
     }

@@ -42,7 +42,7 @@ namespace RunPythonScript
 
                     var articles = datas.SelectMany(x => x);
 
-                    return articles.Where(x=>x.concordance > 0.25).Select(x => x.idArticle).ToList();
+                    return articles.Where(x=>x.concordance > 0.10).Select(x => x.idArticle).ToList();
                 }
             }
             catch (Exception ex)
