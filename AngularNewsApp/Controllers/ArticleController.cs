@@ -296,7 +296,7 @@ namespace AngularNewsApp.Controllers
                            source = s.name,
                            subtitle = a.subtitle,
                            title = a.title
-                       }).Take(nb.Value).ToList();
+                       }).OrderByDescending(x=>x.date).Take(nb.Value).ToList();
             }
             else
             {
@@ -313,7 +313,7 @@ namespace AngularNewsApp.Controllers
                            source = s.name,
                            subtitle = a.subtitle,
                            title = a.title
-                       }).ToList();
+                       }).OrderByDescending(x => x.date).ToList();
             }
 
 
